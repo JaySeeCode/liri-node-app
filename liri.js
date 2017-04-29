@@ -1,26 +1,31 @@
-const keys = require("./keys.js");
+const keys = require('./keys.js');
 const Twitter = require('twitter');
 const spotify = require('spotify');
-const request = require("request");
+const request = require('request');
+const fs = require('fs');
+
+
 
 var input = process.argv;
 
 switch (input[2]) {
 	case "my-tweets":
-		pullTweets(keys)
+		pullTweets(keys, input[2]);
 		break;
 	case "spotify-this-song":
-		lookUpSong(spotify, input[3]);
+		lookUpSong(spotify, input[3], input[2]);
 		break;
 	case "movie-this":
-		lookUpMovieInfo(input[3]);
+		lookUpMovieInfo(input[3], input[2]);
 		break;
 	case "do-what-it-says":
-		//do something
+		doWhatItSays(input[3])
 }
 
+// logDatatoFile();
 
-function pullTweets(keys) {
+
+function pullTweets(keys, command) {
 
 	var client = new Twitter(keys.twitterKeys);
 
@@ -38,20 +43,27 @@ function pullTweets(keys) {
 			//if there are more than 20 tweets, display them and then break out of the loop
 			if(tweets.length >= 20){
 
-				console.log("===========================");
-				console.log("TWEET #" + (i + 1));
-				console.log(tweets[i].text);
-				console.log("Created on: " + tweets[i].created_at);
-				console.log("===========================");
+				let tweet = "===========================" + '\n' +
+							"TWEET #" + (i + 1) + '\n' +
+							tweets[i].text + '\n' +
+							"Created on: " + tweets[i].created_at + '\n' +
+							"===========================";
+
+				console.log(tweet);
+				logDatatoFile(tweet, command);
 				break;
 
 			}else{
 
-				console.log("===========================");
-				console.log("TWEET #" + (i + 1));
-				console.log(tweets[i].text);
-				console.log("Created on: " + tweets[i].created_at);
-				console.log("===========================");
+				let tweet = "===========================" + '\n' +
+						"TWEET #" + (i + 1) + '\n' +
+						tweets[i].text + '\n' +
+						"Created on: " + tweets[i].created_at + '\n' +
+						"===========================";
+
+				console.log(tweet);
+				logDatatoFile(tweet, command);
+				// break;
 
 			}
 		  
@@ -60,22 +72,22 @@ function pullTweets(keys) {
 
 }
 
-function lookUpSong(spotify, input) {
+function lookUpSong(spotify, input, command) {
 
 	let song = null;
 
 	if(input === undefined || input === ""){
 		song = "The Sign";
 		console.log("\nSince you did not provide a movie to look for, we have picked one for you...");
-		pullSongInfo(song);
+		pullSongInfo(song, command);
 	}else{
 		song = input;
-		pullSongInfo(song);
+		pullSongInfo(song, command);
 	}
 
 };
 
-function lookUpMovieInfo(input) {
+function lookUpMovieInfo(input, command) {
 
 	// console.log("VALUE ON INPUT: " + input);
 
@@ -85,17 +97,17 @@ function lookUpMovieInfo(input) {
 		movieName = "mr nobody";
 
 		console.log("\nSince you did not provide a movie to look for, we have picked one for you...\n If you haven't watched it, we suggest you do!");
-		pullMovieInfo(movieName);
+		pullMovieInfo(movieName, command);
 
 	}else{
 		movieName = input;
-		pullMovieInfo(movieName);
+		pullMovieInfo(movieName, command);
 	}
 
 };
 
 
-function pullMovieInfo(movie) {
+function pullMovieInfo(movie, command) {
 
 	let queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&r=json";
 
@@ -108,21 +120,25 @@ function pullMovieInfo(movie) {
 
 			let obj = JSON.parse(body);
 			// console.log(obj);
-			console.log("\nTitle: " + obj.Title);
-			console.log("Year Released: " + obj.Released);
-			console.log("IMDB Rating: " + obj.Ratings[0].Value);
-			console.log("Produced in: " + obj.Country);
-			console.log("Language: " + obj.Language);
-			console.log("Plot Summary: " + obj.Plot);
-			console.log("Actors: " + obj.Actors);
-			console.log("Rotten Tomatoes Rating: " + obj.Ratings[1].Value);
+			var movieInfo = "\nTitle: " + obj.Title + "\n" +
+						"Year Released: " + obj.Released + "\n" +
+						"IMDB Rating: " + obj.Ratings[0].Value + "\n" +
+						"Produced in: " + obj.Country + "\n" +
+						"Language: " + obj.Language + "\n" +
+						"Plot Summary: " + obj.Plot + "\n" +
+						"Actors: " + obj.Actors + "\n" +
+						"Rotten Tomatoes Rating: " + obj.Ratings[1].Value + "\n";
+
+			console.log(movieInfo);
+			logDatatoFile(movieInfo, command);
+
 		}
 
 	});
 
 };
 
-function pullSongInfo(song) {
+function pullSongInfo(song, command) {
 
 	spotify.search({ type: 'track', query: song }, function(err, data) {
 
@@ -137,12 +153,62 @@ function pullSongInfo(song) {
 
 		let info = data.tracks.items[0];
 
-		console.log("\nArtist: " + info.artists[0].name);
-		console.log("Song: " + info.name);
-		console.log("Song Preview: " + info.preview_url);
-		console.log("Album: " + info.album.name);
+		var songInfo = "\nArtist: " + info.artists[0].name + "\n" +
+					   "Song: " + info.name + '\n' +
+					   "Song Preview: " + info.preview_url + '\n' +
+					   "Album: " + info.album.name + '\n';
+
+		console.log(songInfo);
+		logDatatoFile(songInfo, command)
+
 	
 		
 	})
+
+};
+
+function doWhatItSays(command) {
+
+	fs.readFile('commands.txt', 'utf8', function(error, data){
+
+		if(error){
+			console.log("THERE WAS AN ERROR: " + error);
+		}
+
+		let dataArr = data.split(",");
+
+		switch (dataArr[0]) {
+			case "my-tweets":
+				pullTweets(keys);
+				break;
+			case "spotify-this-song":
+				lookUpSong(spotify, dataArr[1]);
+				break;
+			case "movie-this":
+				lookUpMovieInfo(dataArr[1]);
+		}
+
+	});
+
+};
+
+function logDatatoFile(data, comm) {
+
+	// fs.writeFile('write-test.txt', 'Qi sits in the Dantien', function(err){
+	// 	if(err){
+	// 		return console.log(err);
+	// 	}
+
+	// 	console.log("write-test.txt was updated");
+	// });
+	var timeStamp = + new Date();
+
+	var log = "\n===== DATA LOG =====" + "\n" +
+			  "\nCommand called: " + comm +
+			  "\n" + data + "\n" +
+			  "Time Stamp in Unix time: " + timeStamp + "\n" +
+			"\n===== END OF LOG =====\n";
+
+	fs.appendFile("write-test.txt", log);
 
 };

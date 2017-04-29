@@ -1,0 +1,113 @@
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #1
+Seriously interested in starting to gain professional experience as a web developer/programmer. Wondering where to start...
+Created on: Thu Apr 27 17:16:53 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004575
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #2
+A single hour can seem like a brief moment or an eternity, depending on the perspective.
+Created on: Thu Apr 27 17:12:25 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004580
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #3
+Making progress on Node.js homework. Still waiting to see actual real life applications of it...
+Created on: Thu Apr 27 17:10:54 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004581
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #4
+Learning Node Js...
+Created on: Mon Apr 24 22:20:21 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004581
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #5
+Drinking Vanilla Hazelnut Coffee before class starts
+Created on: Mon Apr 24 22:19:50 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004582
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #6
+Really bad allergies today :-(
+Created on: Tue Apr 18 18:58:01 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004582
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #7
+Drinking Early Grey Tea with sugar and milk
+Created on: Tue Apr 18 18:57:42 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004583
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: my-tweets
+===========================
+TWEET #8
+Testing Twitter
+Created on: Tue Apr 18 18:57:15 +0000 2017
+===========================
+Time Stamp in Unix time: 1493449004583
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: undefined
+
+Title: Batman Begins
+Year Released: 15 Jun 2005
+IMDB Rating: 8.3/10
+Produced in: USA, UK
+Language: English, Urdu, Mandarin
+Plot Summary: After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.
+Actors: Christian Bale, Michael Caine, Liam Neeson, Katie Holmes
+Rotten Tomatoes Rating: 84%
+
+Time Stamp in Unix time: 1493449036982
+
+===== END OF LOG =====
