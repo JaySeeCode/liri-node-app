@@ -1,12 +1,15 @@
+// GLOBAL VARIABLES
 const keys = require('./keys.js');
 const Twitter = require('twitter');
 const spotify = require('spotify');
 const request = require('request');
 const fs = require('fs');
 
-
-
+//for catching user input
 var input = process.argv;
+
+
+// PROGRAM
 
 switch (input[2]) {
 	case "my-tweets":
@@ -19,11 +22,11 @@ switch (input[2]) {
 		lookUpMovieInfo(input[3], input[2]);
 		break;
 	case "do-what-it-says":
-		doWhatItSays(input[3])
+		doWhatItSays(input[2])
 }
 
-// logDatatoFile();
 
+// FUNCTIONS
 
 function pullTweets(keys, command) {
 
@@ -32,6 +35,7 @@ function pullTweets(keys, command) {
 	var params = {screen_name: 'local_coder'};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
+
 	  // if (!error) {
 	    // console.log(JSON.stringify(tweets, null, 2, 3));
 	    // console.log(tweets.length);
@@ -63,7 +67,6 @@ function pullTweets(keys, command) {
 
 				console.log(tweet);
 				logDatatoFile(tweet, command);
-				// break;
 
 			}
 		  
@@ -179,13 +182,13 @@ function doWhatItSays(command) {
 
 		switch (dataArr[0]) {
 			case "my-tweets":
-				pullTweets(keys);
+				pullTweets(keys, command);
 				break;
 			case "spotify-this-song":
-				lookUpSong(spotify, dataArr[1]);
+				lookUpSong(spotify, dataArr[1]), command;
 				break;
 			case "movie-this":
-				lookUpMovieInfo(dataArr[1]);
+				lookUpMovieInfo(dataArr[1], command);
 		}
 
 	});
@@ -194,13 +197,6 @@ function doWhatItSays(command) {
 
 function logDatatoFile(data, comm) {
 
-	// fs.writeFile('write-test.txt', 'Qi sits in the Dantien', function(err){
-	// 	if(err){
-	// 		return console.log(err);
-	// 	}
-
-	// 	console.log("write-test.txt was updated");
-	// });
 	var timeStamp = + new Date();
 
 	var log = "\n===== DATA LOG =====" + "\n" +

@@ -1,103 +1,7 @@
 
 ===== DATA LOG =====
 
-Command called: my-tweets
-===========================
-TWEET #1
-Seriously interested in starting to gain professional experience as a web developer/programmer. Wondering where to start...
-Created on: Thu Apr 27 17:16:53 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004575
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #2
-A single hour can seem like a brief moment or an eternity, depending on the perspective.
-Created on: Thu Apr 27 17:12:25 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004580
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #3
-Making progress on Node.js homework. Still waiting to see actual real life applications of it...
-Created on: Thu Apr 27 17:10:54 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004581
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #4
-Learning Node Js...
-Created on: Mon Apr 24 22:20:21 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004581
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #5
-Drinking Vanilla Hazelnut Coffee before class starts
-Created on: Mon Apr 24 22:19:50 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004582
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #6
-Really bad allergies today :-(
-Created on: Tue Apr 18 18:58:01 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004582
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #7
-Drinking Early Grey Tea with sugar and milk
-Created on: Tue Apr 18 18:57:42 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004583
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: my-tweets
-===========================
-TWEET #8
-Testing Twitter
-Created on: Tue Apr 18 18:57:15 +0000 2017
-===========================
-Time Stamp in Unix time: 1493449004583
-
-===== END OF LOG =====
-
-===== DATA LOG =====
-
-Command called: undefined
+Command called: do-what-it-says
 
 Title: Batman Begins
 Year Released: 15 Jun 2005
@@ -108,6 +12,36 @@ Plot Summary: After training with his mentor, Batman begins his fight to free cr
 Actors: Christian Bale, Michael Caine, Liam Neeson, Katie Holmes
 Rotten Tomatoes Rating: 84%
 
-Time Stamp in Unix time: 1493449036982
+Time Stamp in Unix time: 1493449752713
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: movie-this
+
+Title: 1911
+Year Released: 23 Sep 2011
+IMDB Rating: 6.0/10
+Produced in: China, Hong Kong
+Language: Mandarin, English, French
+Plot Summary: A historical drama based on the founding of the Republic of China when nationalist forces led by Sun Yat-sen overthrew the Qing Dynasty.
+Actors: Jackie Chan, Winston Chao, Bingbing Li, Chun Sun
+Rotten Tomatoes Rating: 8%
+
+Time Stamp in Unix time: 1493449773581
+
+===== END OF LOG =====
+
+===== DATA LOG =====
+
+Command called: spotify-this-song
+
+Artist: Arctic Monkeys
+Song: 505
+Song Preview: https://p.scdn.co/mp3-preview/971776090b85e536f69e19a80598bdaa29d14a88?cid=null
+Album: Favourite Worst Nightmare (Standard Version)
+
+Time Stamp in Unix time: 1493449851375
 
 ===== END OF LOG =====
